@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { Select, Store } from '@ngxs/store';
 import { Observable } from 'rxjs';
 import { Todo } from 'src/app/models/Todo';
@@ -14,9 +14,9 @@ export class TodoComponent implements OnInit {
   
   @Select(TodoState.getTodos) todos$: Observable<Todo[]>;
 
-  addTodoForm: FormGroup;
+  addTodoForm: UntypedFormGroup;
 
-  constructor(private store: Store, private formbuilder: FormBuilder) {
+  constructor(private store: Store, private formbuilder: UntypedFormBuilder) {
     this.addTodoForm = this.formbuilder.group({
       content: ['', [Validators.required]],
     });

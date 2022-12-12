@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { Store } from '@ngxs/store';
 import { Account } from 'src/app/store';
 
@@ -9,9 +9,9 @@ import { Account } from 'src/app/store';
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent implements OnInit{
-  loginForm: FormGroup
+  loginForm: UntypedFormGroup
 
-  constructor(private formBuilder: FormBuilder, private store: Store) {
+  constructor(private formBuilder: UntypedFormBuilder, private store: Store) {
     this.loginForm = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required]],
